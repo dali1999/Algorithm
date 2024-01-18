@@ -8,4 +8,5 @@ function solution(array) {
     let maxCount = Math.max(...Object.values(number));
     let findMax = Object.keys(number).filter((x) => number[x] === maxCount);
     return (findMax.length == 1) ? Number(findMax) : -1;
+    
 }
