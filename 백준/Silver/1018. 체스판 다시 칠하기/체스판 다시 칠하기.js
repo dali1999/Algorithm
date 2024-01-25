@@ -33,7 +33,7 @@ const M = Number(NM[1]); // 13
 
 // 문자열 끝 줄바꿈 문자 제거
 for (let i = 0; i < N; i++) {
-  input[i] = input[i].join("").replace(/\s/g, "");
+  input[i] = input[i].map((element) => element.trim()).join("");
 }
 let answer = 64;
 
