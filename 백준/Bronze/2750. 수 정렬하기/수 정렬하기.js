@@ -8,7 +8,7 @@ const input = require("fs")
 const N = input.shift();
 
 for (let i = 0; i < N; i++) {
-  for (let j = 0; j < N; j++) {
+  for (let j = 0; j < N - 1 - i; j++) {
     if (input[j] > input[j + 1])
       [input[j], input[j + 1]] = [input[j + 1], input[j]];
   }
