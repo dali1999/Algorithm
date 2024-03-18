@@ -15,20 +15,12 @@ function binarySearch(requests, M) {
 
   while (start <= end) {
     const mid = Math.floor((start + end) / 2);
+    const sum = requests.reduce((acc, request) => acc + Math.min(request, mid), 0);
 
-    // 각 요청 범위 체크해서 더함
-    const sum = requests.reduce(
-      (acc, request) => acc + Math.min(request, mid),
-      0
-    );
-    
-    // 만족하면
     if (sum <= M) {
       result = mid;
       start = mid + 1;
-    }
-    // 만족 안하면
-    else {
+    } else {
       end = mid - 1;
     }
   }
