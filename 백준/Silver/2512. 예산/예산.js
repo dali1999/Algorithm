@@ -8,21 +8,22 @@ const input = require("fs")
 const [[N], requests, [M]] = input;
 requests.sort((a, b) => a - b);
 
-function binarySearch(arr, target) {
+function binarySearch(requests, M) {
   let start = 1;
-  let end = arr[N - 1];
+  let end = requests[N - 1];
   let result = 0;
 
   while (start <= end) {
-    let mid = Math.floor((start + end) / 2);
-    let sum = 0;
+    const mid = Math.floor((start + end) / 2);
 
     // 각 요청 범위 체크해서 더함
-    for (const x of arr) {
-      sum += Math.min(x, mid);
-    }
+    const sum = requests.reduce(
+      (acc, request) => acc + Math.min(request, mid),
+      0
+    );
+    
     // 만족하면
-    if (sum <= target) {
+    if (sum <= M) {
       result = mid;
       start = mid + 1;
     }
